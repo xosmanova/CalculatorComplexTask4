@@ -9,13 +9,13 @@ namespace Complex_Calculator
             InitializeComponent();
         }
 
-        bool click;              // operator ve ya "=" basildiqdan sonra yeni eded yazilmalidir
-        double num1;             // birinci eded
-        string operation = "";   // secilmis emeliyyat (+, -, *, /)
+        bool click;             
+        double num1;          
+        string operation = "";   
 
-        // ---------------- RƏQƏM DÜYMƏLƏRİ ----------------
+        
 
-        private void button11_Click(object sender, EventArgs e)   // 1
+        private void button11_Click(object sender, EventArgs e)   
         {
             if (click)
             {
@@ -28,7 +28,7 @@ namespace Complex_Calculator
             }
             richTextBox1.Text += 1;
         }
-        private void button12_Click(object sender, EventArgs e)   // 2
+        private void button12_Click(object sender, EventArgs e)  
         {
             if (click)
             {
@@ -41,7 +41,7 @@ namespace Complex_Calculator
             }
             richTextBox1.Text += 2;
         }
-        private void button13_Click(object sender, EventArgs e)   // 3
+        private void button13_Click(object sender, EventArgs e)   
         {
             if (click)
             {
@@ -54,7 +54,7 @@ namespace Complex_Calculator
             }
             richTextBox1.Text += 3;
         }
-        private void button14_Click(object sender, EventArgs e)   // 4
+        private void button14_Click(object sender, EventArgs e)   
         {
             if (click)
             {
@@ -67,7 +67,7 @@ namespace Complex_Calculator
             }
             richTextBox1.Text += 4;
         }
-        private void button5_Click(object sender, EventArgs e)    // 5
+        private void button5_Click(object sender, EventArgs e)    
         {
             if (click)
             {
@@ -80,7 +80,7 @@ namespace Complex_Calculator
             }
             richTextBox1.Text += 5;
         }
-        private void button6_Click(object sender, EventArgs e)    // 6
+        private void button6_Click(object sender, EventArgs e)    
         {
             if (click)
             {
@@ -93,7 +93,7 @@ namespace Complex_Calculator
             }
             richTextBox1.Text += 6;
         }
-        private void button7_Click(object sender, EventArgs e)    // 7
+        private void button7_Click(object sender, EventArgs e)    
         {
             if (click)
             {
@@ -106,7 +106,7 @@ namespace Complex_Calculator
             }
             richTextBox1.Text += 7;
         }
-        private void button8_Click(object sender, EventArgs e)    // 8
+        private void button8_Click(object sender, EventArgs e)    
         {
             if (click)
             {
@@ -119,7 +119,7 @@ namespace Complex_Calculator
             }
             richTextBox1.Text += 8;
         }
-        private void button9_Click(object sender, EventArgs e)    // 9
+        private void button9_Click(object sender, EventArgs e)   
         {
             if (click)
             {
@@ -132,7 +132,7 @@ namespace Complex_Calculator
             }
             richTextBox1.Text += 9;
         }
-        private void button16_Click(object sender, EventArgs e)   // 0
+        private void button16_Click(object sender, EventArgs e)   
         {
             if (click)
             {
@@ -144,15 +144,15 @@ namespace Complex_Calculator
                 richTextBox1.Text = "";
             }
             richTextBox1.Text += 0;
-            if (richTextBox1.Text == "00")   // 0 üçün "00" yazılmasın
+            if (richTextBox1.Text == "00")   
             {
                 richTextBox1.Text = "0";
             }
         }
 
-        // ---------------- C və <-- ----------------
+    
 
-        private void button10_Click(object sender, EventArgs e)   // C
+        private void button10_Click(object sender, EventArgs e)   
         {
             richTextBox1.Text = "0";
             num1 = 0;
@@ -160,7 +160,7 @@ namespace Complex_Calculator
             click = false;
             listBox1.Items.Clear();
         }
-        private void button15_Click(object sender, EventArgs e)   // <--
+        private void button15_Click(object sender, EventArgs e)  
         {
             if (richTextBox1.Text.Length > 1)
             {
@@ -176,9 +176,9 @@ namespace Complex_Calculator
             }
         }
 
-        // ---------------- İŞARƏ DƏYİŞ (-) ----------------
+        
 
-        private void button17_Click(object sender, EventArgs e)   // +/-
+        private void button17_Click(object sender, EventArgs e)  
         {
             if (richTextBox1.Text == "0" || string.IsNullOrEmpty(richTextBox1.Text))
             {
@@ -194,28 +194,28 @@ namespace Complex_Calculator
             }
         }
 
-        // ---------------- ƏMƏLİYYAT DÜYMƏLƏRİ ----------------
+       
 
-        private void button1_Click(object sender, EventArgs e)    // +
+        private void button1_Click(object sender, EventArgs e)   
         {
             SetOperation("+");
         }
-        private void button2_Click(object sender, EventArgs e)    // -
+        private void button2_Click(object sender, EventArgs e)  
         {
             SetOperation("-");
         }
-        private void button3_Click(object sender, EventArgs e)    // *
+        private void button3_Click(object sender, EventArgs e)   
         {
             SetOperation("*");
         }
-        private void button4_Click(object sender, EventArgs e)    // /
+        private void button4_Click(object sender, EventArgs e)
         {
             SetOperation("/");
         }
 
         private void SetOperation(string op)
         {
-            // Əgər artıq əməliyyat seçilibsə və ikinci ədəd yazılıbsa, əvvəlcə onu hesabla
+           
             if (operation != "" && !click)
             {
                 if (!Calculate())
@@ -231,9 +231,9 @@ namespace Complex_Calculator
             click = true;
         }
 
-        // ---------------- Sqrt, x^2 ----------------
+        
 
-        private void button18_Click(object sender, EventArgs e)   // Sqrt
+        private void button18_Click(object sender, EventArgs e)  
         {
             if (!double.TryParse(richTextBox1.Text, CultureInfo.InvariantCulture, out double x))
             {
@@ -249,7 +249,7 @@ namespace Complex_Calculator
             richTextBox1.Text = Format(result);
             click = true;
         }
-        private void button19_Click(object sender, EventArgs e)   // x^2
+        private void button19_Click(object sender, EventArgs e)
         {
             if (!double.TryParse(richTextBox1.Text, CultureInfo.InvariantCulture, out double x))
             {
@@ -261,9 +261,9 @@ namespace Complex_Calculator
             click = true;
         }
 
-        // ---------------- = ----------------
+       
 
-        private void button20_Click(object sender, EventArgs e)   // =
+        private void button20_Click(object sender, EventArgs e) 
         {
             if (operation == "")
             {
@@ -276,9 +276,7 @@ namespace Complex_Calculator
             }
         }
 
-        // ---------------- HESABLAMA ----------------
-
-        // Uğurlu olarsa true, xəta olarsa (məs. 0-a bölmə) false qaytarır
+        
         private bool Calculate()
         {
             if (!double.TryParse(richTextBox1.Text, CultureInfo.InvariantCulture, out double num2))
